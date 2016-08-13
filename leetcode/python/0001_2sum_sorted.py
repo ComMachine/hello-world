@@ -21,14 +21,16 @@ class Solution(object):
 
         i = 0
         j = len(sortednums)-1
-        while (i<len(sortednums)):
-            while (j>0):
-                
+        #while (i<len(sortednums)):
+        #    while (j>0):
+        # This is more optimized
+        while (i < j):
                 # found the numbers; go find the original subscripts
                 if (sortednums[i]+sortednums[j] == target):
                     # here there is a caveat that when sortednums[i] == sortednums[j]
                     # index() will only locate first number so it will generate the same index
                     # enumerate() is useful here
+                    # Another way: Search the smaller from the left and search the larger from the right
                     count = 0
                     for idx, val in enumerate(nums):
                         if (val == sortednums[i]):
@@ -61,4 +63,5 @@ class Solution(object):
                     #if (i == j):
                     #    break
                     continue
- 
+                
+                    
